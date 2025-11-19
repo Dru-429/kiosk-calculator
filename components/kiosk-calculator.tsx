@@ -47,11 +47,11 @@ export default function KioskCalculator() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4 bg-background">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 border-2 border-border">
+    <div className="flex items-center justify-center min-h-screen bg-background">
+      <div className="w-full max-w-md bg-white/90 rounded-2xl shadow-xl p-6 border-2 border-border">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-primary text-center mb-1">
+        <div className="mb-4">
+          <h1 className="text-xl font-bold text-primary text-center">
             PARKING KIOSK
           </h1>
           <p className="text-center text-sm text-foreground/70">
@@ -60,7 +60,7 @@ export default function KioskCalculator() {
         </div>
 
         {/* Money Input Section */}
-        <div className="mb-6 bg-secondary/20 p-5 rounded-xl border-2 border-secondary">
+        <div className="mb-4 bg-secondary/20 p-2 px-4 rounded-xl border-2 border-secondary">
           <label className="block text-lg font-bold text-foreground mb-3">
             Money Collected (₹)
           </label>
@@ -68,31 +68,39 @@ export default function KioskCalculator() {
             type="number"
             value={moneyCollected}
             onChange={(e) => setMoneyCollected(e.target.value)}
-            className="w-full px-4 py-3 text-xl font-bold border-2 border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/50 bg-white text-foreground"
+            className="w-full px-3 py-2 text-xl font-bold border-2 border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/50 bg-white text-foreground"
             placeholder="0"
           />
         </div>
 
         {/* Money Info Display */}
-        <div className="grid grid-cols-2 gap-3 mb-6">
-          <div className="bg-primary/10 p-4 rounded-lg border-2 border-primary">
-            <p className="text-xs font-semibold text-foreground/70 mb-1">Total Cost</p>
-            <p className="text-2xl font-bold text-primary">₹{totalCost}</p>
+        <div className="flex justify-between mb-4 w-full">
+          <div className='flex justify-start gap-4 w-[80%]'>            
+            <div className="bg-primary/10 p-2 rounded-lg border-2 border-primary w-[45%]">
+              <p className="text-xs font-semibold text-foreground/70 mb-1 ">Total Cost</p>
+              <p className="text-xl font-bold text-primary">₹{totalCost}</p>
+            </div>
+            <div className="bg-secondary/10 p-2 rounded-lg border-2 border-secondary w-[45%]">
+              <p className="text-xs font-semibold text-foreground/70 mb-1">Return Cash</p>
+              <p className="text-xl font-bold text-secondary">₹{returnCash}</p>
+            </div>
           </div>
-          <div className="bg-secondary/10 p-4 rounded-lg border-2 border-secondary">
-            <p className="text-xs font-semibold text-foreground/70 mb-1">Return Cash</p>
-            <p className="text-2xl font-bold text-secondary">₹{returnCash}</p>
-          </div>
+          <button
+            onClick={handleReset}
+            className="flex items-center justify-center px-5 py-1 bg-green-100 text-green-700 font-bold text-lg rounded-lg hover:bg-border/80 transition-colors border-2 border-green-300 "
+          >
+            <RotateCcw size={30} />
+          </button>
         </div>
 
         {/* Products Grid */}
         <div className="mb-6">
-          <h2 className="text-lg font-bold text-foreground mb-4">Select Items</h2>
+          <h2 className="text-lg font-bold text-foreground mb-2">Select Items</h2>
           <div className="space-y-3">
             {products.map((product) => (
               <div
                 key={product.id}
-                className="flex items-center justify-between bg-background p-4 rounded-lg border-2 border-border hover:border-primary/50 transition-colors"
+                className="flex items-center justify-between bg-background p-3 rounded-lg border-2 border-border hover:border-primary/50 transition-colors"
               >
                 <div className="flex-1">
                   <p className="font-semibold text-foreground text-base mb-1">
@@ -156,24 +164,8 @@ export default function KioskCalculator() {
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-4">
-          <button
-            onClick={handleReset}
-            className="flex items-center justify-center gap-2 px-4 py-4 bg-border text-foreground font-bold text-lg rounded-lg hover:bg-border/80 transition-colors border-2 border-border"
-          >
-            <RotateCcw size={20} />
-            Reset
-          </button>
-          <button
-            className="px-4 py-4 bg-primary text-white font-bold text-lg rounded-lg hover:bg-primary/90 transition-colors border-2 border-primary"
-          >
-            Calculate
-          </button>
-        </div>
-
         {/* Footer Info */}
-        <div className="mt-6 pt-6 border-t-2 border-border text-center">
+        <div className="mt-6 pt-3 border-t-2 border-border text-center">
           <p className="text-xs text-foreground/60">
             Select items and enter amount received to calculate change
           </p>
