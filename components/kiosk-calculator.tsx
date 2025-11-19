@@ -14,10 +14,10 @@ interface Product {
 export default function KioskCalculator() {
   const [products, setProducts] = useState<Product[]>([
     { id: 1, name: 'Pack Lunch', price: 20, quantity: 0, bulkOptions: [2, 3, 4, 5] },
+    { id: 5, name: 'Fruit Drink', price: 9, quantity: 0, bulkOptions: [4, 18, 40, 50] },
     { id: 2, name: 'Biscuit-Parle G', price: 4, quantity: 0, bulkOptions: [6, 12, 24, 48] },
     { id: 3, name: 'Biscuit-Coconut', price: 4, quantity: 0, bulkOptions: [6, 12, 24, 48] },
     { id: 4, name: 'Biscuit-Salty', price: 4, quantity: 0, bulkOptions: [6, 12, 24, 48] },
-    { id: 5, name: 'Fruit Drink', price: 9, quantity: 0, bulkOptions: [4, 18, 40, 50] },
     { id: 6, name: 'Water Bottle', price: 13, quantity: 0, bulkOptions: [4, 15, 30] },
   ]);
 
@@ -48,13 +48,13 @@ export default function KioskCalculator() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
-      <div className="w-full max-w-md bg-white/90 rounded-2xl shadow-xl p-6 border-2 border-border">
+      <div className="w-full max-w-md bg-white/90 rounded-2xl shadow-xl p-4 border-2 border-border">
         {/* Header */}
-        <div className="mb-4">
-          <h1 className="text-xl font-bold text-primary text-center">
+        <div className="mb-4 -mt-3">
+          <h1 className="text-xl font-bold text-primary">
             PARKING KIOSK
           </h1>
-          <p className="text-center text-sm text-foreground/70">
+          <p className=" text-sm text-foreground/70">
             PRODUCT CALCULATOR
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function KioskCalculator() {
                     
                     {/* Dropdown Menu */}
                     {openDropdown === product.id && (
-                      <div className="absolute bottom-full mb-2 right-0 bg-white border-2 border-primary rounded-lg shadow-lg z-50 min-w-max">
+                      <div className="absolute bottom-full mb-2 -left-16 bg-white border-2 border-primary rounded-lg shadow-lg z-50 min-w-max flex">
                         {product.bulkOptions.map((option) => (
                           <button
                             key={option}
