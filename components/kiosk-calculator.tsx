@@ -48,7 +48,7 @@ export default function KioskCalculator() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
-      <div className="w-full max-w-md bg-white/90 rounded-2xl shadow-xl p-4 border-2 border-border">
+      <div className="w-full max-w-md bg-white/90 rounded-2xl shadow-xl p-4 border border-border">
         {/* Header */}
         <div className="mb-4 -mt-3">
           <h1 className="text-xl font-bold text-primary">
@@ -60,7 +60,7 @@ export default function KioskCalculator() {
         </div>
 
         {/* Money Input Section */}
-        <div className="mb-4 bg-secondary/20 p-2 px-4 rounded-xl border-2 border-secondary">
+        <div className="mb-4 bg-secondary/20 p-2 px-4 rounded-xl border border-secondary">
           <label className="block text-lg font-bold text-foreground mb-3">
             Money Collected (₹)
           </label>
@@ -68,7 +68,7 @@ export default function KioskCalculator() {
             type="number"
             value={moneyCollected}
             onChange={(e) => setMoneyCollected(e.target.value)}
-            className="w-full px-3 py-2 text-xl font-bold border-2 border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/50 bg-white text-foreground"
+            className="w-full px-3 py-2 text-xl font-bold border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/50 bg-white text-foreground"
             placeholder="0"
           />
         </div>
@@ -76,18 +76,18 @@ export default function KioskCalculator() {
         {/* Money Info Display */}
         <div className="flex justify-between mb-4 w-full">
           <div className='flex justify-start gap-4 w-[80%]'>            
-            <div className="bg-primary/10 p-2 rounded-lg border-2 border-primary w-[45%]">
-              <p className="text-xs font-semibold text-foreground/70 mb-1 ">Total Cost</p>
+            <div className="bg-primary/10 p-2 rounded-lg border border-primary w-[45%]">
+              <p className="text-xs font-semibold text-foreground/90 mb-1 ">Total Cost</p>
               <p className="text-xl font-bold text-primary">₹{totalCost}</p>
             </div>
-            <div className="bg-secondary/10 p-2 rounded-lg border-2 border-secondary w-[45%]">
-              <p className="text-xs font-semibold text-foreground/70 mb-1">Return Cash</p>
+            <div className="bg-secondary/10 p-2 rounded-lg border border-secondary w-[45%]">
+              <p className="text-xs font-semibold text-foreground/90 mb-1">Return Cash</p>
               <p className="text-xl font-bold text-secondary">₹{returnCash}</p>
             </div>
           </div>
           <button
             onClick={handleReset}
-            className="flex items-center justify-center px-5 py-1 bg-green-100 text-green-700 font-bold text-lg rounded-lg hover:bg-border/80 transition-colors border-2 border-green-300 "
+            className="flex items-center justify-center px-5 py-1 bg-green-100 text-green-700 font-bold text-lg rounded-lg hover:bg-border/80 transition-colors border border-green-300 "
           >
             <RotateCcw size={30} />
           </button>
@@ -100,7 +100,7 @@ export default function KioskCalculator() {
             {products.map((product) => (
               <div
                 key={product.id}
-                className="flex items-center justify-between bg-background p-3 rounded-lg border-2 border-border hover:border-primary/50 transition-colors"
+                className="flex items-center justify-between bg-background p-3 rounded-lg border border-border hover:border-primary/50 transition-colors"
               >
                 <div className="flex-1">
                   <p className="font-semibold text-foreground text-base mb-1">
@@ -124,7 +124,7 @@ export default function KioskCalculator() {
                     
                     {/* Dropdown Menu */}
                     {openDropdown === product.id && (
-                      <div className="absolute bottom-full mb-2 -left-16 bg-white border-2 border-primary rounded-lg shadow-lg z-50 min-w-max flex">
+                      <div className="absolute bottom-full mb-2 -left-16 bg-white border border-primary rounded-lg shadow-lg z-50 min-w-max flex">
                         {product.bulkOptions.map((option) => (
                           <button
                             key={option}
@@ -141,7 +141,7 @@ export default function KioskCalculator() {
                   <button
                     onClick={() => updateQuantity(product.id, -1)}
                     disabled={product.quantity === 0}
-                    className="p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-2 bg-red-200 text-red-600 rounded-lg hover:bg-red-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     aria-label="Decrease quantity"
                   >
                     <Minus size={20} />
@@ -153,7 +153,7 @@ export default function KioskCalculator() {
 
                   <button
                     onClick={() => updateQuantity(product.id, 1)}
-                    className="p-2 bg-green-100 text-green-600 rounded-lg hover:bg-green-200 transition-colors"
+                    className="p-2 bg-green-200 text-green-600 rounded-lg hover:bg-green-200 transition-colors"
                     aria-label="Increase quantity"
                   >
                     <Plus size={20} />
