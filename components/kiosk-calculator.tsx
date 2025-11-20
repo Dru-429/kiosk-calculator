@@ -39,7 +39,7 @@ export default function KioskCalculator() {
 
   const totalCost = products.reduce((sum, p) => sum + p.price * p.quantity, 0);
   const collected = parseInt(moneyCollected) || 0;
-  const returnCash = Math.max(0, collected - totalCost);
+  const returnCash = Math.max(collected - totalCost);
 
   const handleReset = () => {
     setProducts(products.map(p => ({ ...p, quantity: 0 })));
@@ -82,7 +82,7 @@ export default function KioskCalculator() {
             </div>
             <div className="bg-secondary/10 p-2 rounded-lg border border-secondary w-[45%]">
               <p className="text-xs font-semibold text-foreground/90 mb-1">Return Cash</p>
-              <p className="text-xl font-bold text-secondary">₹{returnCash}</p>
+              <p className="text-xl font-bold text-[#917352]">₹{returnCash}</p>
             </div>
           </div>
           <button
