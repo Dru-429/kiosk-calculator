@@ -117,9 +117,13 @@ export default function KioskCalculator() {
                       onClick={() => setOpenDropdown(openDropdown === product.id ? null : product.id)}
                       className="p-2 bg-yellow-100 text-yellow-700 rounded-lg hover:bg-yellow-200 transition-colors flex items-center gap-1"
                       aria-label="Bulk select quantity"
+                      aria-expanded={openDropdown === product.id}
                       title="Quick select quantities"
                     >
-                      <ChevronDown size={18} />
+                      <ChevronDown
+                        size={18}
+                        className={`transition-transform duration-200 ease-in-out ${openDropdown === product.id ? 'rotate-180' : ''}`}
+                      />
                     </button>
                     
                     {/* Dropdown Menu */}
