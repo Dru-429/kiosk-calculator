@@ -15,7 +15,7 @@ export default function KioskCalculator() {
   const [products, setProducts] = useState<Product[]>([
     { id: 1, name: 'Pack Lunch', price: 20, quantity: 0, bulkOptions: [2, 3, 4, 5] },
     { id: 5, name: 'Fruit Drink', price: 20, quantity: 0, bulkOptions: [4, 18, 40, 50] },
-    { id: 2, name: 'Biscuit-Parle G', price: 4, quantity: 0, bulkOptions: [6, 12, 24, 48] },
+    { id: 2, name: 'Biscuit-Parle G', price: 5, quantity: 0, bulkOptions: [6, 12, 24, 48] },
     { id: 3, name: 'Biscuit-Coconut', price: 4, quantity: 0, bulkOptions: [6, 12, 24, 48] },
     { id: 4, name: 'Biscuit-Salty', price: 4, quantity: 0, bulkOptions: [6, 12, 24, 48] },
     { id: 6, name: 'Water Bottle', price: 13, quantity: 0, bulkOptions: [4, 15, 30] },
